@@ -8,9 +8,8 @@ body{
     grid-template-areas:
     "header"
     "home-main"
-    "filtering-sorting"
     "footer";
-    grid-template-rows: auto 1fr 1fr auto;
+    grid-template-rows: auto 1fr auto;
     background-color: #E0E0E0;
     color: #333333 ;
     max-width:1440px;
@@ -54,8 +53,9 @@ a{
     grid-area:home-main;
     display: grid;
     grid-template-areas:
-    "sidebar books space";
-    grid-template-columns: 1fr 1fr 1fr;
+    "sidebar books space"
+    "sidebar filtering-sorting space";
+    grid-template-columns: 1fr 1fr 0.5fr;
     margin:10px;
     padding:20px;
     text-align:center;
@@ -70,6 +70,7 @@ a{
     display: flex;
     padding: 20px;
     overflow-x: auto;
+   
 
      
 }   
@@ -77,6 +78,7 @@ a{
     list-style: none;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
 }
 
@@ -86,6 +88,7 @@ a{
     grid-template-columns:auto auto auto;
     padding: 20px;
     gap: 20px;
+  
 }
 
 
@@ -147,12 +150,13 @@ header ul li a:hover{
     grid-area:filtering-sorting;
     display: grid;
     grid-template-areas:
-    "books-price books-author";
-    grid-template-columns: 1fr 1fr;
+    "books-price"
+    "books-author";
+    
     gap: 20px;
-    padding: 20px;
+   
     border-top: 1px solid black; 
-    margin: 10px;
+   
     text-align:center;
 }
 .styled-line {
@@ -165,9 +169,8 @@ header ul li a:hover{
 .books-price{
     grid-area:books-price;
     display: grid;
-    grid-template-columns: auto auto;
-    gap:5px;
-  
+    grid-template-columns: auto auto auto;
+    gap: 20px;
     border-radius:10px;
     padding:20px;
    
@@ -175,9 +178,8 @@ header ul li a:hover{
 .books-author{
     grid-area:books-author;
     display: grid;
-    grid-template-columns: auto auto;
-    gap: 5px;
-   
+    grid-template-columns: auto auto auto;
+    gap: 20px;
     border-radius:10px;
     padding:20px;
   
@@ -211,8 +213,10 @@ header ul li a:hover{
         grid-template-areas:
         "books"
         "sidebar"
-        "space";
+        "space"
+        "filtering-sorting";
         margin:auto;
+        grid-template-columns: auto;
     }
     .sidebar ul{
         flex-direction: row;
@@ -226,6 +230,7 @@ header ul li a:hover{
         border-top:1px solid black;
         border-bottom:1px solid black;
         border-right:none;
+        margin: 20px 0px
        
 
         
@@ -236,16 +241,7 @@ header ul li a:hover{
         padding: 20px;
         justify-content: center;
     }
-    .filtering-sorting{
-        grid-template-areas:
-        "books-price"
-        "books-author";
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
-        border-top:none;
-
-    }
+  
     .books-price{
     
         grid-template-columns: auto;
@@ -262,8 +258,39 @@ header ul li a:hover{
     display: flex;
     flex-direction: column;
    }
+   .filtering-sorting{
+    border-top:none;
+   }
   
 
 
 }
 
+@media (min-width:1024px) and (max-width:1230px){
+    
+        .home-main{
+            grid-template-areas:
+            "books"
+            "sidebar"
+            "space"
+            "filtering-sorting";
+            margin:auto;
+            grid-template-columns: auto;
+        }
+        .sidebar ul{
+            flex-direction: row;
+            gap: 30px;
+         
+        }
+        .sidebar{
+            width: 100%;
+            padding: 20px;
+            border-radius:0px;
+            border-top:1px solid black;
+            border-bottom:1px solid black;
+            border-right:none;
+           
+    
+            
+        }
+}
